@@ -3,13 +3,13 @@ using TrainingCenter.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<IAnimalRepository, AnimalRepository>();
-builder.Services.AddTransient<IAnimalService, AnimalService>();
+builder.Services.AddSingleton<IRoomRepository, RoomRepository>();
+builder.Services.AddSingleton<IReservationRepository, ReservationRepository>();
+builder.Services.AddTransient<IRoomService, RoomService>();
+builder.Services.AddTransient<IReservationService, ReservationService>();
 
 var app = builder.Build();
 
